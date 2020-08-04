@@ -44,6 +44,7 @@ class Api
         $response = \xmlrpc_decode(trim(file_get_contents($this->url, false, stream_context_create(array(
             'http' => array(
                 'method' => 'POST',
+                'timeout' => 1,
                 'header' => $this->headers,
                 'content' => \xmlrpc_encode_request($method, $params)
             )
